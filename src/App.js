@@ -27,6 +27,7 @@ function App() {
   const [employeeArray, setEmployeeArray] = useState([]);
 
   useEffect(() => {
+    // ! when putting multiple query params it got really upset and refused to work with me. i had it set to bring back only the things i needed. it kept bringing back objects and wouldnt let me bring back more than one user. spent a bunch of time with react telling me .map isnt a function, when in reality i wasnt getting back an array, i was getting back an object
     fetch("https://randomuser.me/api/?results=15")
       .then((response) => response.json())
       .then((fetchData) => {
@@ -41,7 +42,8 @@ function App() {
       {employeeArray.map((each, index) => {
         return (
           <div key={index}>
-            <h2>{each.name.first} {each.name.last} {each.email} {each.cell}</h2>
+            <h2>{each.name.first} {each.name.last} {each.email} {each.cell} </h2>
+            <img src ={each.picture.thumbnail}/>
           </div>
         );
       })}
