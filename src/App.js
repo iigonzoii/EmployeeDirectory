@@ -9,10 +9,10 @@ import { useEffect, useState } from "react";
 // step two make a form
 // image, name, phone, email
 // use map to create the table row by row?
-// we need a row created for each person, we need their information displayed in each column
+// we need a row created for each person, we need their information displayed in each column **CHECK**
 
 // step three figure out what data goes where
-// check out docs on api
+// check out docs on api **CHECK**
 
 // step 4 put data in form from fetch
 
@@ -31,34 +31,38 @@ function App() {
     fetch("https://randomuser.me/api/?results=15")
       .then((response) => response.json())
       .then((fetchData) => {
-        console.log(fetchData.results)
+        console.log(fetchData.results);
         setEmployeeArray(fetchData.results);
       });
-      ;
   }, []);
 
   return (
     <>
-      {employeeArray.map((each, index) => {
-        return (
-          <table key={index}>
+      
+          <table style={{ width:"100%"}} >
+            <thead>
             <tr>
-    <th>Picture</th>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Email</th>
-    <th>CellPhone</th>
-  </tr>
-  <tr>
-<td><img src ={each.picture.thumbnail}/></td>
-<td>{each.name.first}</td>
-<td>{each.name.last}</td>
-<td>{each.email}</td>
-<td>{each.cell}</td>
-  </tr>
-          
+              <th>Picture</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Email</th>
+              <th>CellPhone</th>
+            </tr>
+            </thead>
+            </table>
+            {employeeArray.map((each, index) => {
+        return (
+            <tr key={index}>
+              <td>
+                <img src={each.picture.thumbnail} />
+              </td>
+              <td>{each.name.first}</td>
+              <td>{each.name.last}</td>
+              <td>{each.email}</td>
+              <td>{each.cell}</td>
+            </tr>
             
-          </table>
+          
         );
       })}
     </>
