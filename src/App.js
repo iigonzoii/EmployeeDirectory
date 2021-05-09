@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 // on page load we want to have a table display... make a table in html using jsx to populate in further steps
 
 // step one make a fetch to fill form on page load
-// refer to tutorial components and props for the fetch we built
+// refer to tutorial components and props for the fetch we built  **CHECK**
 
 // step two make a form
 // image, name, phone, email
@@ -41,10 +41,24 @@ function App() {
     <>
       {employeeArray.map((each, index) => {
         return (
-          <div key={index}>
-            <h2>{each.name.first} {each.name.last} {each.email} {each.cell} </h2>
-            <img src ={each.picture.thumbnail}/>
-          </div>
+          <table key={index}>
+            <tr>
+    <th>Picture</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Email</th>
+    <th>CellPhone</th>
+  </tr>
+  <tr>
+<td><img src ={each.picture.thumbnail}/></td>
+<td>{each.name.first}</td>
+<td>{each.name.last}</td>
+<td>{each.email}</td>
+<td>{each.cell}</td>
+  </tr>
+          
+            
+          </table>
         );
       })}
     </>
