@@ -69,9 +69,10 @@ function App() {
   const handleNameSearch = (e) => {
     //  here we filter through employee array and we use include not as an array method but as a string method to go through each employees first name and return only employees who match our target value
     let smallerArray = employeeArray.filter((each) => {
-      return each.name.first.toLowerCase().includes(e.target.value.toLowerCase());
+      return each.name.first.toLowerCase().includes(e.target.value.toLowerCase()) || each.name.last.toLowerCase().includes(e.target.value.toLowerCase()) ;
     });
-    console.log(smallerArray);
+    setEmployeeArray(smallerArray)
+    // console.log(smallerArray);
   };
 
   return (
