@@ -93,7 +93,7 @@ function App() {
             <th>CellPhone</th>
           </tr>
         </thead>
-      </table>
+      
       {employeeArray.map((each, index) => {
         return (
           <tr key={index}>
@@ -105,8 +105,10 @@ function App() {
             <td>{each.email}</td>
             <td>{each.cell}</td>
           </tr>
+          
         );
       })}
+      </table>
     </>
   );
 }
