@@ -12,36 +12,31 @@ import React from "react";
 
 function App() {
   const [employeeArray, setEmployeeArray] = useState([]);
-  // const [inputsObj, setInputsObj] = useState({});
 
   useEffect(() => {
     fetch("https://randomuser.me/api/?results=15")
       .then((response) => response.json())
       .then((fetchData) => {
-        // console.log(fetchData.results);
         setEmployeeArray(fetchData.results);
       });
   }, []);
 
-  // const handleInputs = (e) => {
-  //   // set our state variable of an empty object to clone
-  //   // step one we get something back from state
-  //   var clone = inputsObj;
-  //   // here we are using [] notation to go through an object because we dont know what the key will be, only the value
-  //   //step two we do something to state
-  //   clone[e.target.name] = e.target.value;
-  //   // here we update our state variable with the new value
-  //   // step three then we set state back to updated value
-  //   setInputsObj(clone);
-
-  //   console.log({ ...inputsObj });
-  // };
+  const sortByName = () => {
+    
+    let sortArray = employeeArray.sort((a, b) => {
+      return (a.name.first > b.name.first ? 1 : -1);
+    });
+    setEmployeeArray([...sortArray]);
+    console.log(employeeArray);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
+
   const handleNameSearch = (e) => {
-    //  here we filter through employee array and we use include not as an array method but as a string method to go through each employees name and return only employees who match our target value
+    //  here we filter through employee array and we use include to go through each employees name and return only employees who match users input
     let smallerArray = employeeArray.filter((each) => {
       return (
         each.name.first.toLowerCase().includes(e.target.value.toLowerCase()) ||
@@ -53,9 +48,10 @@ function App() {
 
   return (
     <>
-      {/* name represents the key and "userInput value" represents the input value */}
+      <button onClick={sortByName}></button>
+
       <form onSubmit={handleSubmit}>
-        <input type="text" name="name" onChange={handleNameSearch} />
+        <input type="text" onChange={handleNameSearch} />
       </form>
 
       <table style={{ width: "100%" }}>
@@ -71,15 +67,18 @@ function App() {
         {employeeArray.map((each, index) => {
           return (
             <tbody key={index}>
-            <tr>
-              <td>
-                <img src={each.picture.thumbnail} alt={"thumbnail of employee"}/>
-              </td>
-              <td>{each.name.first}</td>
-              <td>{each.name.last}</td>
-              <td>{each.email}</td>
-              <td>{each.cell}</td>
-            </tr>
+              <tr>
+                <td>
+                  <img
+                    src={each.picture.thumbnail}
+                    alt={"thumbnail of employee"}
+                  />
+                </td>
+                <td>{each.name.first}</td>
+                <td>{each.name.last}</td>
+                <td>{each.email}</td>
+                <td>{each.cell}</td>
+              </tr>
             </tbody>
           );
         })}
