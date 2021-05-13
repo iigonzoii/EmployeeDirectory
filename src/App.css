@@ -43,3 +43,15 @@
     input {
       border: solid 1px gray
     }
+
+    button{
+    display: inline;
+    border:0px;
+    background-color: blue;
+    padding: 2px;
+    color: whitesmoke;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    margin-left: 5px;
+    }

@@ -11,7 +11,9 @@ import SearchForm from "./components/SearchForm";
 
 function App() {
   const [employeeArray, setEmployeeArray] = useState([]);
+
   const [employeeArrayFiltered, setEmployeeArrayFiltered] = useState([]);
+
   useEffect(() => {
     fetch("https://randomuser.me/api/?results=15")
       .then((response) => response.json())
