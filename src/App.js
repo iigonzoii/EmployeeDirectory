@@ -15,7 +15,7 @@ function App() {
   const [employeeArrayFiltered, setEmployeeArrayFiltered] = useState([]);
 
   useEffect(() => {
-    fetch("https://randomuser.me/api/?results=15")
+    fetch("https://randomuser.me/api/?results=30")
       .then((response) => response.json())
       .then((fetchData) => {
         setEmployeeArray(fetchData.results);
@@ -48,15 +48,11 @@ function App() {
     setEmployeeArrayFiltered(smallerArray);
   };
 
-  return (
-    /*    <Header/>
-
-      <Search/>
-      <Table/>
-      <TableData/>   */
+  return (  
     <>
       <header>
         Employee Directory
+        <p>Click on sort in the first name column to sort by Employee's First name. Type in the text box to filter by Employee's first or last name.</p>
       </header>
       <SearchForm
         handleSubmit={handleSubmit}
