@@ -33,4 +33,13 @@
     color: black;
   
     }
-    
+
+  header{
+    text-align:center;
+    margin:5px;
+    font-size:100px;
+    background-color:blue
+  }
+    input {
+      border: solid 1px gray
+    }
