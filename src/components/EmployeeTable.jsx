@@ -5,12 +5,12 @@ function EmployeeTable(props) {
                 <thead>
                     <tr>
                         <th>Picture</th>
-                        <th> Firstname
+                        <th> First name
                             <button onClick={props.sortByName}>sort</button>
                             </th>
-                        <th>Lastname</th>
+                        <th>Last name</th>
                         <th>Email</th>
-                        <th>CellPhone</th>
+                        <th>Cell Phone</th>
                     </tr>
                 </thead>
                 {props.employeeArrayFiltered.map((each, index) => {
