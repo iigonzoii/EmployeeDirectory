@@ -40,7 +40,7 @@
   There are no tests included
 
   ## Deployed Site
-  You can visit the site using <a href="https://peaceful-fjord-93262.herokuapp.com/?id=6082f68ec8cdef87f6813061">heroku</a>
+  You can visit the site using <a href="https://iigonzoii.github.io/EmployeeDirectory/">GitHub Pages</a>
 
   ## Questions
   Find me on Github or reach out via email
